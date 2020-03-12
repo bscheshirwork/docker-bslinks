@@ -37,3 +37,6 @@ services:
       MYSQL_DATABASE: yii2basic
       MYSQL_USER: yii2basic
       MYSQL_PASSWORD: yii2basic
+networks:
+  nginx-proxy:
+    external: true # docker network create nginx-proxy

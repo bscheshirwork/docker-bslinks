@@ -8,7 +8,7 @@ RUN curl -L https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-
 RUN /bin/bash -c 'chmod +x /usr/local/bin/wait-for-it.sh'
 RUN ls -luha /usr/local/bin/wait-for-it.sh
 ENTRYPOINT ["/usr/local/bin/wait-for-it.sh", "db:3306", "--", "/run_tests.sh"]
-RUN git clone https://github.com/yiisoft/yii2-app-basic.git /var/www/html
+RUN git clone https://github.com/bscheshirwork/bslinks.git /var/www/html
 RUN composer install --no-dev
 # replace some config same to docker-compose.test.yml
 RUN sed -i -e "s/.*dsn.*/"\'"dsn"\'" => "\'"mysql:host=db;dbname=yii2basic"\'",/" -e "s/.*username.*/"\'"username"\'" => "\'"yii2basic"\'",/" -e "s/.*password.*/"\'"password"\'" => "\'"yii2basic"\'",/" -e "s/.*charset.*/"\'"charset"\'" => "\'"utf8mb4"\'",/" /var/www/html/config/db.php
